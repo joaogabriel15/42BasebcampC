@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   man.c                                              :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joaogabr <joaogabr@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 05:25:09 by joaogabr          #+#    #+#             */
-/*   Updated: 2022/04/08 05:59:06 by joaogabr         ###   ########.fr       */
+/*   Created: 2022/04/23 01:20:47 by joaogabr          #+#    #+#             */
+/*   Updated: 2022/04/23 01:21:39 by joaogabr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(void)
+void	ft_putchar(char c)
 {
-
-int a = 10;
-
-while(a > 1){
-	escreva
-	a = a-1;
+	write(1, &c, 1);
 }
 
-
-
-do{	}while()
-
-for(){	}
-
-  return(0);
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		nb = -nb;
+		ft_putchar('-');
+	}
+	if (nb < 10)
+		ft_putchar(nb + '0');
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 }
